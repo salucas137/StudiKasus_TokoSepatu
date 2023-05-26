@@ -76,8 +76,7 @@ if (!isset($_SESSION['login'])) {
               <th scope="col">No</th>
               <th scope="col">Nama</th>
               <th scope="col">Harga</th>
-              <th scope="col">Gambar</th>
-              <th scope="col">Kategori</th>  
+              <th scope="col">Gambar</th>  
             </tr>
           </thead>
           <tbody>
@@ -90,7 +89,6 @@ if (!isset($_SESSION['login'])) {
                 <td><?= $getdata['nama'] ?></td>
                 <td><?= $getdata['harga'] ?></td>
                 <td><img src="gambar/<?php echo $getdata['gambar'];  ?>"  width='70' height='90'  /></td>
-                <td><?= $getdata['kategori_id'] ?></td>
                 <td>
                   <a href="updatedata.php?updateid=<?= $getdata['id'] ?>"><button class="btn btn-secondary rounded">Update</button></a>
                   <a href="delete.php?deleteid=<?= $getdata['id'] ?>"><button class="btn btn-danger rounded">Delete</button></a>
