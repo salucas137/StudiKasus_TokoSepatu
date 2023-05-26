@@ -1,0 +1,16 @@
+#title {
+  padding: 50px;
+  text-align: center;
+}
+
+.login {
+  width: 500px;
+  height: 400px;
+  background-color: #17a2b8;
+  padding: 20px;
+  border-radius: 16px;
+  margin: auto;
+}
+.login h1 {
+  text-align: center;
+}
