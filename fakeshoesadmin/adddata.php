@@ -7,16 +7,24 @@ if (!isset($_SESSION['login'])) {
 }
  
   if (isset($_POST['adddata'])) {
+    print_r ($_FILES);
     $nama = $_POST['nama'];
     $harga = $_POST['harga'];
     $gambar = $_FILES['gambar']['name'];
-        $source = $_FILES['gambar']['tmp_name'];
-        $folder = './gambar/';
-
+    $source = $_FILES['gambar']['tmp_name'];
+    $folder = './gambar/';
+    $target_file = $folder . basename($_FILES["gambar"]["name"]);
+    // echo $gambar;
+    // echo $source;
+    // echo $target_file;
+        
+       
         move_uploaded_file($source, $folder.$gambar);
   
     // insert in table data
     $result = mysqli_query($conn, "INSERT INTO `produk` (`nama`,`harga`,`gambar`) VALUES ('$nama','$harga','$gambar');");
+    // echo "INSERT INTO `produk` (`nama`,`harga`,`gambar`) VALUES ('$nama','$harga','$gambar');";
+    // exit();
     if ($result) {
       $success = true;
     }
@@ -93,7 +101,7 @@ if (!isset($_SESSION['login'])) {
       <?php sleep(2);
       header('location: index.php') ?>
     <?php endif ?>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
       <label class="mt-4" for="nama">Nama</label>
       <input type="text" name="nama" id="nama" class="form-control" require>
       <label class="mt-4" for="harga">Harga</label>
