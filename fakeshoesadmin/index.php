@@ -1,5 +1,9 @@
 <?php
 require 'dbconnect.php';
+if (!isset($_SESSION['login'])) {
+  header('location: login.php');
+} else {
+}
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +77,7 @@ require 'dbconnect.php';
               <th scope="col">Nama</th>
               <th scope="col">Harga</th>
               <th scope="col">Gambar</th>
-              
+              <th scope="col">Kategori</th>  
             </tr>
           </thead>
           <tbody>
@@ -86,6 +90,7 @@ require 'dbconnect.php';
                 <td><?= $getdata['nama'] ?></td>
                 <td><?= $getdata['harga'] ?></td>
                 <td><img src="gambar/<?php echo $getdata['gambar'];  ?>"  width='70' height='90'  /></td>
+                <td><?= $getdata['kategori_id'] ?></td>
                 <td>
                   <a href="updatedata.php?updateid=<?= $getdata['id'] ?>"><button class="btn btn-secondary rounded">Update</button></a>
                   <a href="delete.php?deleteid=<?= $getdata['id'] ?>"><button class="btn btn-danger rounded">Delete</button></a>

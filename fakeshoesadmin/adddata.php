@@ -1,5 +1,9 @@
 <?php
 require 'dbconnect.php';
+if (!isset($_SESSION['login'])) {
+  header('location: login.php');
+} else {
+}
  
   if (isset($_POST['adddata'])) {
     $nama = $_POST['nama'];
